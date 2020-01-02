@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
+#include <time.h>
 #include <unistd.h>
 #include <string.h>
 
 int main(int argc, char *argv[]){
-
-	/*Se declaran las variables necesarias para medir el tiempo del programa a ejecutar*/
-	struct timeval tiempoInicial, tiempoFinal;
-    double tiempoTotal;
-    
 	
 	/*Se declara el string que contendra el programa a ejecutar
 	junto a sus argumentos*/
@@ -26,20 +21,19 @@ int main(int argc, char *argv[]){
 	}
 	
 	//se inicia el cronometro
-	gettimeofday(&tiempoInicial, NULL); 
+	clock_t begin= clock();
 
 	/*se ejecuta el nuevo programa con sus respectivos argumentos
 	usando el string que contiene dicho programa con sus argumentos*/
 	system(progYargs);
 	
 	//se finaliza el cronometro
-	gettimeofday(&tiempoFinal, NULL); 
+	clock_t end=clock();
 
 
 	/*Se calcula e imprime el tiempo que tardo el programa en ejecutarse*/
-	tiempoTotal= (tiempoFinal.tv_sec - tiempoInicial.tv_sec)*1000 + (tiempoFinal.tv_usec - tiempoInicial.tv_usec)/1000.0;
-	tiempoTotal= tiempoTotal/1000;
-	printf("Timeprog ---> El tiempo en segundos es: %f\n",tiempoTotal);
+	double time= (double)(end-begin)/CLOCKS_PER_SEC;
+	printf("Timeprog ---> El tiempo en segundos es: %f\n",time);
 	
 	return 0;
 }
