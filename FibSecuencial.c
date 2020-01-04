@@ -6,17 +6,14 @@
         (rand()% (int)(((max)+1))) + (min)
 /* Funcion que utiliza la ecuacion para hallar la sucesion de fibonacci y recibe un parametro n que seria
    el numero de fibonacci a calcular*/
-long Fibonacci (double n) {
-	return ((pow((1+sqrt(5))/2,n))-(pow((1-sqrt(5))/2,n)))/(sqrt(5));
-}
+
 unsigned long long int serieSum(){    
     int times =randnum(0,19);	
     if (times==0) return 0; 
     if (times==1) return 1;
     if (times==2) return 1; 
     times-=2;
-    //printf("times2 %lld \n ", times) ;
-	unsigned long long int count = 0,ant = 1,ant2=0;
+    	unsigned long long int count = 0,ant = 1,ant2=0;
     	for (int i=0;i<=times;i++){
         	count=ant+ant2;
         	ant2= ant;
