@@ -55,13 +55,13 @@ int main(int ac, char *av[])
         }
         else //Si hay un error en el archivo origen
         {
-            fprintf(stderr, "Modo de uso: ucp Buffer source destination\n");
+            fprintf(stderr, "Error en el archivo de origen.\n");
             exit(1);
         }
     }
     else //Si hay un error en el tamaño del buffer
     {
-        fprintf(stderr,"El tamano del buffer : es %i  pero este debe estar entre 1 y 16384",buff);
+        fprintf(stderr,"El tamano del buffer : es %i  pero este debe estar entre 1 y 16384 \n",buff);
         exit(1);
     }  
     return 0;
