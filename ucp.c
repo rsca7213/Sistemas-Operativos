@@ -64,7 +64,8 @@ int main(int ac, char *av[])
         fprintf(stderr,"El tamano del buffer : es %i  pero este debe estar entre 1 y 16384",buff);
         exit(1);
     }  
-}
+    return 0;
+} //fin de funcion main
 
 /* Funcion que realiza la copia de los archivos y
 recibe como parametros el tamaño del buffer y 
